@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10xOnline - Results</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #262626;
+        }
+
+        .navbar-nav .nav-link {
+            color: #262626;
+            font-weight: 500;
+            margin-right: 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #0095f6;
+        }
+
+        .container {
+            margin-top: 80px; /* Adjusted to ensure content is below navbar */
+        }
+
+        .results-section {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 20px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">10xOnline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for ('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for ('results')}}">Results</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Results Page</h1>
+        <div class="results-section">
+            <div class="result-item">
+                <h2>Result 1</h2>
+                <p>Details about result 1...</p>
+            </div>
+            <div class="result-item">
+                <h2>Result 2</h2>
+                <p>Details about result 2...</p>
+            </div>
+            <!-- Add more results as needed -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

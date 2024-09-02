@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10xOnline</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #262626;
+        }
+
+        .navbar-nav .nav-link {
+            color: #262626;
+            font-weight: 500;
+            margin-right: 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #0095f6;
+        }
+
+        .upload-btn {
+            background-color: #0095f6;
+            border-color: #0095f6;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .upload-btn:hover {
+            background-color: #007bb5;
+            border-color: #007bb5;
+        }
+
+        .container {
+            margin-top: 80px; /* Adjusted to ensure content is below navbar */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">10xOnline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for ('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for ('results')}}">Results</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <h1>Welcome to 10xOnline</h1>
+
+        <form action="{{ url_for('results') }}" enctype="multipart/form-data" method="post">
+            <p>Upload your files below:</p>
+            <input name="uploadbutton" type="file" class="upload-btn">
+            <input type="submit" class="upload-btn"> 
+        </form>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
