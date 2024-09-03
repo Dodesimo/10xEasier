@@ -44,4 +44,31 @@ def normalization(data):
     sc.pp.log1p(data)
 
 def clustering(data):
-    #filter for highly variable genes
+    #establish criteria for highly variable genes
+    sc.pp.highly_variable_genes(data, min_mean=0.0125, max_mean=3, min_disp=0.5)
+
+    #filter out the highly variable genes
+    data = data[:, data.var.highly_variable]
+
+    #regressing out total_counts, pct_counts_mt (removing correlating effects between them)
+    sc.pp.regress_out(data, ['total_counts', 'pct_counts_mt'])
+
+    #scale results
+    sc.pp.scale(data, max_value=10)
+
+    #PCA analysis, single value decomposition using arpack.
+    sc.tl.pca(data, svd_solver='arpack')
+
+    #Calculate variance ratio figure of PCAs.
+    figure = sc.pl.pca_variance_ratio(data, log=True)
+    figure.savefig(os.path.join("/Users/devammondal/Downloads/Appseq/App/outputs", "principalComponentsRatios"))
+
+    #Cluster.
+    sc.pp.neighbors(data, n_neighbors=10, n_pcs=20)
+
+    #Create both leiden and zika colorings of umap configuration
+    figure = sc.pl.umap(data, color='leiden')
+    figure.savefig(os.path.join("/Users/devammondal/Downloads/Appseq/App/outputs", "uMapLeidenClustering"))
+
+
+
