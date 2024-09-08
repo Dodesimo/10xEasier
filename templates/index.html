@@ -77,7 +77,8 @@
 
         <form action="{{ url_for('results') }}" enctype="multipart/form-data" method="post">
             <p>Upload your files below:</p>
-            <input name="uploadbutton" type="file" class="upload-btn">
+            <p>Tip! Hold down ctrl/command and click all files to upload at once</p>
+            <input type="file" name="uploadbutton" class="upload-btn" multiple>
             <input type="submit" class="upload-btn"> 
         </form>
 
